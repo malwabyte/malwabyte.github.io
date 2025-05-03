@@ -68,6 +68,23 @@ function event(){
 	}, 50);
 }
 
+function preshowImage() {
+    var loadingSpinner = document.getElementById("loadingSpinner");
+    loadingSpinner.style.display = "block"; // Show the spinner
+
+    // Simulate image loading
+    setTimeout(function () {
+        document.getElementById("imgTxt").style.opacity = 0;
+        myImage.setAttribute("src", imageArray[imageIndex]);
+        myTxt.innerHTML = txtArray[imageIndex];
+        imageIndex++;
+        if (imageIndex >= len) {
+            imageIndex = 0;
+        }
+        loadingSpinner.style.display = "none"; // Hide the spinner after loading
+    }, 500); // Simulated loading time
+}
+
 var showImageInterval;
 var imgInterval;
 var buttonInterval;
