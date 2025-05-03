@@ -15,6 +15,7 @@ function showImage(){
 }
 
 function play() {
+	event();
     if (t == 0) {
         var loadingSpinner = document.getElementById("loadingSpinner");
         loadingSpinner.style.display = "block"; // Show the spinner when the heart is clicked
@@ -88,4 +89,4 @@ var showImageInterval;
 var imgInterval;
 var buttonInterval;
 
-event();
+
