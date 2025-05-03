@@ -15,7 +15,7 @@ function showImage(){
 }
 
 function play() {
-	event();
+	showImageInterval = setInterval(preshowImage, 100);
     if (t == 0) {
         var loadingSpinner = document.getElementById("loadingSpinner");
         loadingSpinner.style.display = "block"; // Show the spinner when the heart is clicked
@@ -74,7 +74,6 @@ function buttonFadeIn(){
 
 function event(){
 
-	showImageInterval = setInterval(preshowImage, 100);
 
 	imgInterval = setInterval(function (){
 		if(ok == 3){
@@ -89,4 +88,4 @@ var showImageInterval;
 var imgInterval;
 var buttonInterval;
 
-
+event();
