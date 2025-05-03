@@ -14,21 +14,27 @@ function showImage(){
 	}
 }
 
-function play(){
-	if(t == 0){
-		myImage.setAttribute("src", "");
-		myTxt.innerHTML = "";
-		imageIndex = 0;
-		clearInterval(showImageInterval);
-	}
-	flag = 1 - flag;
-	document.getElementById("typeDiv").style.opacity = flag;
-	document.getElementById("imgTxt").style.opacity = 1 - flag;
-	if(t == 0){
-		//setTimeout(showImage, 1000);
-		setInterval(showImage, 10000);
-	}
-	t++;
+function play() {
+    if (t == 0) {
+        var loadingSpinner = document.getElementById("loadingSpinner");
+        loadingSpinner.style.display = "block"; // Show the spinner when the heart is clicked
+
+        myImage.setAttribute("src", "");
+        myTxt.innerHTML = "";
+        imageIndex = 0;
+        clearInterval(showImageInterval);
+
+        // Start loading images after a short delay
+        setTimeout(function () {
+            loadingSpinner.style.display = "none"; // Hide the spinner before starting the slideshow
+            setInterval(showImage, 10000); // Change image every 10 seconds
+        }, 500); // Simulated delay before starting the slideshow
+    }
+
+    flag = 1 - flag;
+    document.getElementById("typeDiv").style.opacity = flag;
+    document.getElementById("imgTxt").style.opacity = 1 - flag;
+    t++;
 }
 
 function preshowImage(){
