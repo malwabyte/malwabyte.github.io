@@ -37,14 +37,23 @@ function play() {
     t++;
 }
 
-function preshowImage(){
-	document.getElementById("imgTxt").style.opacity = 0;
-	myImage.setAttribute("src", imageArray[imageIndex]);
-	myTxt.innerHTML = txtArray[imageIndex];
-	imageIndex++;
-	if(imageIndex >= len){
-		imageIndex = 0;
-	}
+function preshowImage() {
+    if (t > 0) { // Ensure this only runs after play() is triggered
+        var loadingSpinner = document.getElementById("loadingSpinner");
+        loadingSpinner.style.display = "block"; // Show the spinner
+
+        // Simulate image loading
+        setTimeout(function () {
+            document.getElementById("imgTxt").style.opacity = 0;
+            myImage.setAttribute("src", imageArray[imageIndex]);
+            myTxt.innerHTML = txtArray[imageIndex];
+            imageIndex++;
+            if (imageIndex >= len) {
+                imageIndex = 0;
+            }
+            loadingSpinner.style.display = "none"; // Hide the spinner after loading
+        }, 500); // Simulated loading time
+    }
 }
 
 function buttonFadeIn(){
