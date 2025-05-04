@@ -15,36 +15,25 @@ function showImage(){
 }
 
 function play() {
+    var audio = document.getElementById("backgroundMusic");
+
+    // Attempt to play the audio
+    audio.play().catch(function (error) {
+        console.log("Autoplay blocked. User interaction required to play audio.");
+    });
 	if(t == 0){
- 
 		myImage.setAttribute("src", "");
- 
 		myTxt.innerHTML = "";
- 
 		imageIndex = 0;
- 
 		clearInterval(showImageInterval);
- 
 	}
- 
 	flag = 1 - flag;
- 
 	document.getElementById("typeDiv").style.opacity = flag;
- 
 	document.getElementById("imgTxt").style.opacity = 1 - flag;
- 
 	if(t == 0){
- 
 		//setTimeout(showImage, 1000);
- 
-
-		setInterval(showImage, 2500);
- 
-
-		setInterval(showImage, 5000);
- 
+		setInterval(showImage, 10000);
 	}
- 
 	t++;
 }
 
