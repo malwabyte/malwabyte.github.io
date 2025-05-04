@@ -75,13 +75,13 @@ function buttonFadeIn(){
 
 
 function event() {
-    preloadImages(imageArray, function () {
-        // Start showing images after preloading is complete
-        showImageInterval = setInterval(preshowImage, 100);
+    // Start showing images after preloading is complete
+    showImageInterval = setInterval(preshowImage, 100);
 
-        // Start fading in the heart button
+    // Delay the heart button fade-in by 5 seconds after images are loaded
+    setTimeout(function () {
         buttonInterval = setInterval(buttonFadeIn, 50);
-    });
+    }, 5000); // 5 seconds delay
 }
 
 function preloadImages(imageArray, callback) {
