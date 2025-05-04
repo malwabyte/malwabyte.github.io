@@ -28,7 +28,7 @@ function play() {
         clearInterval(showImageInterval);
 
         // Display the first image immediately
-        showImage();
+        setInterval(showImage, 1000);
 
         // Start the interval to display subsequent images
         setInterval(showImage, 10000);
