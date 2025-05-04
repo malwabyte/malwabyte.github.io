@@ -21,21 +21,12 @@ function play() {
     audio.play().catch(function (error) {
         console.log("Autoplay blocked. User interaction required to play audio.");
     });
-    if (t == 0) {
-        // Display "loading" text for 5 seconds
-        myTxt.innerHTML = "Loading...";
-        myImage.setAttribute("src", "");
-
-        setTimeout(function () {
-            myTxt.innerHTML = ""; // Clear the "loading" text
-            imageIndex = 0;
-            clearInterval(showImageInterval);
-
-            // Start showing images after the loading period
-            setInterval(showImage, 10000);
-        }, 5000); // 5 seconds delay
-    }
-
+	if(t == 0){
+		myImage.setAttribute("src", "");
+		myTxt.innerHTML = "";
+		imageIndex = 0;
+		clearInterval(showImageInterval);
+	}
 	flag = 1 - flag;
 	document.getElementById("typeDiv").style.opacity = flag;
 	document.getElementById("imgTxt").style.opacity = 1 - flag;
@@ -80,7 +71,7 @@ function buttonFadeIn(){
 
 
 function event(){
-
+    preloadImages(imageArray);
 	showImageInterval = setInterval(preshowImage, 100);
 	imgInterval = setInterval(function (){
 		if(ok == 3){
@@ -90,9 +81,17 @@ function event(){
 	}, 50);
 }
 
+function preloadImages(imageArray) {
+    imageArray.forEach(function (src) {
+        const img = new Image();
+        img.src = src;
+    });
+}
+
 
 var showImageInterval;
 var imgInterval;
 var buttonInterval;
 
 event();
+
