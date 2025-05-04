@@ -1,4 +1,3 @@
-
 var btn = document.getElementById("heartTxt");
 btn.style.opacity = 0;
 var btnVal = 0;
@@ -70,21 +69,41 @@ function buttonFadeIn(){
 
 
 
-function event(){
-    preloadImages(imageArray);
-	showImageInterval = setInterval(preshowImage, 100);
-	imgInterval = setInterval(function (){
-		if(ok == 3){
-			setTimeout(function(){buttonInterval = setInterval(buttonFadeIn, 50);}, 1500);
-			clearInterval(imgInterval);
-		}
-	}, 50);
+function event() {
+    preloadImages(imageArray, function () {
+        // Start showing images after preloading is complete
+        showImageInterval = setInterval(preshowImage, 100);
+
+        // Start fading in the heart button
+        buttonInterval = setInterval(buttonFadeIn, 50);
+    });
 }
 
-function preloadImages(imageArray) {
+function preloadImages(imageArray, callback) {
+    let loadedImages = 0;
+    const totalImages = imageArray.length;
+
     imageArray.forEach(function (src) {
         const img = new Image();
         img.src = src;
+
+        // Increment the counter when an image is loaded
+        img.onload = function () {
+            loadedImages++;
+            if (loadedImages === totalImages) {
+                // All images are loaded, call the callback
+                callback();
+            }
+        };
+
+        // Handle errors (optional)
+        img.onerror = function () {
+            console.error(`Failed to load image: ${src}`);
+            loadedImages++;
+            if (loadedImages === totalImages) {
+                callback();
+            }
+        };
     });
 }
 
