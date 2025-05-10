@@ -38,6 +38,10 @@ function play() {
     document.getElementById("typeDiv").style.opacity = flag;
     document.getElementById("imgTxt").style.opacity = 1 - flag;
 
+    // Hide the heart button
+    document.getElementById("button").style.display = "none";
+    document.getElementById("heartTxt").style.display = "none";
+
     t++;
 }
 
