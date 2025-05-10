@@ -137,3 +137,17 @@
 	text-align: center;
 	color: white;
 }
+
+#img {
+    max-width: 100%; /* Ensures the image does not exceed the container's width */
+    height: auto; /* Maintains the aspect ratio */
+    display: block; /* Removes extra space below the image */
+    margin: 0 auto; /* Centers the image horizontally */
+}
+
+#imgTxt {
+    width: 100%; /* Makes the container take up the full width of the screen */
+    max-width: 100%; /* Prevents the container from exceeding the screen width */
+    text-align: center; /* Centers the content inside the container */
+    overflow: hidden; /* Ensures no content overflows the container */
+}
