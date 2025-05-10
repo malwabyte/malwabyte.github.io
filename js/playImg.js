@@ -31,7 +31,7 @@ function play() {
         showImage();
 
         // Start the interval to display subsequent images
-        setInterval(showImage, 7500);
+        setInterval(showImage, 9000);
     }
 
     flag = 1 - flag;
