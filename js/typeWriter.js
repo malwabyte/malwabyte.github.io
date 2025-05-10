@@ -1,7 +1,7 @@
 
 let i = 0;
 let text1 = "Hello Aiaa.";
-let text2 = "Today marks the completion of our 2nd year together as husband and wife. <br> These two years have been filled with countless memories and happiness. <br> I am so grateful to have you by my side, and I look forward to many more years of happiness together with you. <br> You have always been a great support in my life and I always want to make sure you are safe and happy. <br> Happy Anniversary my dear wife, I love you :)";
+let text2 = "Today marks the completion of our 2nd year together as husband and wife. These two years have been filled with countless memories and happiness. I am so grateful to have you by my side, and I look forward to many more years of happiness together with you. You have always been a great support in my life and I always want to make sure you are safe and happy. <br> Happy Anniversary my dear wife, I love you :)";
 let speed = 100;
 
 function typeWriter(text, para) {
