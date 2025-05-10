@@ -28,10 +28,10 @@ function play() {
         clearInterval(showImageInterval);
 
         // Display the first image immediately
-        setInterval(showImage, 1000);
+        showImage();
 
         // Start the interval to display subsequent images
-        setInterval(showImage, 10000);
+        setInterval(showImage, 7500);
     }
 
     flag = 1 - flag;
